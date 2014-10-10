@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Backbone.js Sample</title>
+
+    <!--Twitter Bootstrapを読み込む-->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    </script>
+    <style>
+        #addTask > input{
+          margin:0;
+        }
+        #container{
+          width:300px;
+          margin:0 auto 0 auto;
+        }
+        #error{
+          color:#f40;
+        }
+        .completed{
+          text-decoration: line-through;
+          color: gray;
+        }
+    </style>
+
+</head>
+<body>
+  <div id="container">
+    <!-- 2. HTMLを書いていきます -->
+    <h1>Tasks</h1>
+    <form id="addTask">
+      <input type="text" id="title"></input>
+      <input type="submit" class="btn" value="add"></input>
+      <span id="error"></span>
+    </form>
+    <div id="tasks">
+    </div>
+    <p>Tasks left: <span id="count"></span></p>
+    <script type="text/template" id="task-template">
+<input type="checkbox" class="toggle" <%= completed ? 'checked' : '' %>></input>
+<span class="<%= completed ? 'completed' : '' %>">
+<%- title %>
+</span>
+<span class="delete">[x]</span>
+    </script>
+    <!--jQueryも併用できるので読み込む-->
+    <script src="/lib/js/jquery-1.10.2.min.js"></script>
+    
+    <!--Backboneの読み込み / underscore.jsに依存-->
+    <script src="/lib/js/underscore-min.js"></script>
+    <script src="/lib/js/backbone-min.js"></script>
+    <script src="js/app.js"></script>
+  </div>
+</body>
+</html>
